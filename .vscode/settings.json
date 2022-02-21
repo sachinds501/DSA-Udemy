@@ -1,0 +1,13 @@
+{
+    "files.associations": {
+        "*.java": "java",
+        "iostream": "cpp",
+        "ostream": "cpp",
+        "xutility": "cpp",
+        "system_error": "cpp",
+        "type_traits": "cpp",
+        "xlocnum": "cpp",
+        "xtr1common": "cpp",
+        "utility": "cpp"
+    }
+}
