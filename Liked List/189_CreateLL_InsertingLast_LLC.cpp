@@ -121,7 +121,7 @@ int main()
     p3 = NULL;
 
     // deletion at random, delete the 3rd element
-    
+
     int pos2 = 3;
     Node *p4 = new Node();
     p4 = head;
@@ -131,6 +131,14 @@ int main()
         pos2--;
     }
     p4->next = p4->next->next;
+
+    Node *p5 = new Node();
+    p5 = head;
+    while (p5->next->data != 845 && p5->next->next)
+    {
+        p5 = p5->next;
+    }
+    p5->next = p5->next->next;
 
     L1.Display(head);
     cout << endl
