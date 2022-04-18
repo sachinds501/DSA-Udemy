@@ -14,6 +14,7 @@ public:
     void Display(Node *p);
     void RDisplay(Node *p);
     int RCount(Node *p);
+    void OddEven(Node *p);
 } *head = NULL, *last = NULL;
 
 void Node ::InsertLast(int x)
@@ -64,6 +65,22 @@ void Node ::RDisplay(Node *p)
     cout << p->data << " -> ";
 }
 
+void Node ::OddEven(Node *p)
+{
+    Node *h = new Node;
+    h = head;
+    if (p != NULL)
+    {
+        if (p->data % 2 == 1)
+        {
+            int temp = p->data;
+            p->data = h->data;
+            h->data = temp;
+        }
+        p = p->next;
+    }
+}
+
 int main()
 {
     Node L1;
@@ -72,76 +89,82 @@ int main()
     {
         L1.InsertLast(x);
     }
+    cout << "Odd Even" << endl;
+    L1.OddEven(head);
+    L1.Display(head);
 
     // Insertion at first
+    /*
+        Node *newNode = new Node();
+        newNode->data = 80;
+        newNode->next = head;
+        head = newNode;
 
-    Node *newNode = new Node();
-    newNode->data = 80;
-    newNode->next = head;
-    head = newNode;
+        // Insertion at last
 
-    // Insertion at last
+        Node *newNode2 = new Node();
+        newNode2->data = 70;
+        newNode2->next = NULL;
+        Node *p = new Node();
+        p = head;
+        while (p->next != NULL)
+        {
+            p = p->next;
+        }
+        p->next = newNode2;
 
-    Node *newNode2 = new Node();
-    newNode2->data = 70;
-    newNode2->next = NULL;
-    Node *p = new Node();
-    p = head;
-    while (p->next != NULL)
-    {
-        p = p->next;
-    }
-    p->next = newNode2;
+        // Insertion at random, insert at 3rd position
 
-    // Insertion at random, insert at 3rd position
+        int pos = 3;
+        Node *random = new Node();
+        random->data = 69;
+        Node *p2 = new Node();
+        p2 = head;
+        while (pos - 2 > 0)
+        {
+            p2 = p2->next;
+            pos--;
+        }
+        random->next = p2->next;
+        p2->next = random;
 
-    int pos = 3;
-    Node *random = new Node();
-    random->data = 69;
-    Node *p2 = new Node();
-    p2 = head;
-    while (pos - 2 > 0)
-    {
-        p2 = p2->next;
-        pos--;
-    }
-    random->next = p2->next;
-    p2->next = random;
+        // Deletion of 1st element
+        head = head->next;
 
-    // Deletion of 1st element
-    head = head->next;
+        // Deletion at last
+        Node *p3 = new Node();
+        p3 = head;
+        while (p3->next && p3->next->next)
+        {
+            p3 = p3->next;
+        }
+        p3 = NULL;
 
-    // Deletion at last
-    Node *p3 = new Node();
-    p3 = head;
-    while (p3->next && p3->next->next)
-    {
-        p3 = p3->next;
-    }
-    p3 = NULL;
+        // deletion at random, delete the 3rd element
 
-    // deletion at random, delete the 3rd element
+        int pos2 = 3;
+        Node *p4 = new Node();
+        p4 = head;
+        while (pos2 - 2 > 0)
+        {
+            p4 = p4->next;
+            pos2--;
+        }
+        p4->next = p4->next->next;
 
-    int pos2 = 3;
-    Node *p4 = new Node();
-    p4 = head;
-    while (pos2 - 2 > 0)
-    {
-        p4 = p4->next;
-        pos2--;
-    }
-    p4->next = p4->next->next;
+        Node *p5 = new Node();
+        p5 = head;
+        while (p5->next->data != 845 && p5->next->next)
+        {
+            p5 = p5->next;
+        }
+        p5->next = p5->next->next;
 
-    Node *p5 = new Node();
-    p5 = head;
-    while (p5->next->data != 845 && p5->next->next)
-    {
-        p5 = p5->next;
-    }
-    p5->next = p5->next->next;
+        L1.Display(head);
+        cout << endl
+             << "Count is : " << L1.RCount(head) << endl;
+        // L1.RDisplay(head);
 
-    L1.Display(head);
-    cout << endl
-         << "Count is : " << L1.RCount(head) << endl;
-    // L1.RDisplay(head);
+
+        */
 }

@@ -54,11 +54,9 @@ void RecursiveMergeSort(int A[], int low, int high)
     {
         // Calculate mid point
         int mid = low + (high - low) / 2;
-
         // Sort sub-lists
         RecursiveMergeSort(A, low, mid);
         RecursiveMergeSort(A, mid + 1, high);
-
         // Merge sorted sub-lists
         Merge(A, low, mid, high);
     }
